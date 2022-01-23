@@ -70,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 TextButton(
                   onPressed: _busy ? null : () => _processCommon(processCompute),
+                  // onPressed: _busy ? null : _processCompute,
                   child: const Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Text('START COMPUTE'),
@@ -103,4 +104,23 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() => _busy = false);
     }
   }
+}
+
+// I/flutter (13861): 2022-01-23T14:37:56.012271: processCompute: started...
+// I/flutter (13861): 2022-01-23T14:37:56.012857: _createJson: in
+// I/flutter (13861): 2022-01-23T14:37:59.558154: _createJson: out, size=148879980
+// I/flutter (13861): 2022-01-23T14:37:59.775581: processCompute: fakeJson created
+// 220 ms
+// I/flutter (13861): 2022-01-23T14:37:59.776229: _parseJson: in
+// I/flutter (13861): 2022-01-23T14:38:02.313994: _parseJson: out
+// I/flutter (13861): 2022-01-23T14:38:03.023584: _processCommon: finished, jsonMap["500"]=2022-01-23T14:37:56.013481
+// 710 ms
+Future<void> _processCompute() async {
+  await compute(_computeFunc, '');
+}
+
+Future<void> _computeFunc(_) async {
+  final Map<String, dynamic> jsonMap = await processCompute();
+
+  dbg('_processCommon: finished, jsonMap["500"]=${jsonMap['prefix_500']}');
 }

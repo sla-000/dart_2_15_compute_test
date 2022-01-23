@@ -4,6 +4,15 @@ import 'dbg.dart';
 import 'json_functions.dart';
 
 // https://github.com/dart-lang/samples/blob/master/isolates/bin/send_and_receive.dart
+//
+// I/flutter (14161): 2022-01-23T14:46:35.686301: processSpawn: started...
+// I/flutter (14161): 2022-01-23T14:46:35.687544: _createJson: in
+// I/flutter (14161): 2022-01-23T14:46:39.017954: _createJson: out, size=148879911
+// I/flutter (14161): 2022-01-23T14:46:39.233823: processSpawn: fakeJson created
+// I/flutter (14161): 2022-01-23T14:46:39.236357: _parseJson: in
+// I/flutter (14161): 2022-01-23T14:46:41.684313: _parseJson: out
+// I/flutter (14161): 2022-01-23T14:46:42.394109: _processCommon: finished, jsonMap["500"]=2022-01-23T14:46:35.688213
+//
 Future<Map<String, dynamic>> processSpawn() async {
   dbg('processSpawn: started...');
 
