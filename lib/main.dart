@@ -97,11 +97,11 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Future<void> _processCommon(FutureOr<Map<String, dynamic>> Function() func) async {
+  Future<void> _processCommon(FutureOr<Map<String, dynamic>> Function() processSpecific) async {
     try {
       setState(() => _busy = true);
 
-      final Map<String, dynamic> jsonMap = await func();
+      final Map<String, dynamic> jsonMap = await processSpecific();
 
       dbg('_processCommon: finished, jsonMap["500"]=${jsonMap['prefix_500']}');
     } on Exception catch (error) {
