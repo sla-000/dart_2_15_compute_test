@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -43,24 +42,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-    final double size = min(screenSize.width, screenSize.height);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Stack(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Center(
-              child: SizedBox(
-                width: size,
-                height: size,
-                child: const CircularProgressIndicator(
-                  strokeWidth: 32,
-                ),
+          const Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: LinearProgressIndicator(
+                minHeight: 32,
               ),
             ),
           ),

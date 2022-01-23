@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'dbg.dart';
 
-const int kCount = 10000000;
+const int kCount = 3000000;
 
 Future<String> createJson(String prefix) async {
   dbg('_createJson: in');
@@ -22,7 +22,7 @@ Future<String> createJson(String prefix) async {
 
   fakeJsonBuffer.writeln('}');
 
-  dbg('_createJson: out');
+  dbg('_createJson: out, size=${fakeJsonBuffer.length}');
   return fakeJsonBuffer.toString();
 }
 
